@@ -6,6 +6,8 @@ convert javascript date objects into
 rfc3339 is mandated by
 [atom rss](http://www.atomenabled.org/developers/syndication/).
 
+[![browser support](https://ci.testling.com/substack/internet-timestamp.png)](http://ci.testling.com/substack/internet-timestamp)
+
 # example
 
 ``` js
