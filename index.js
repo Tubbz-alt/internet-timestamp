@@ -5,7 +5,10 @@ module.exports = function (d) {
         tzo = -(Math.floor(tzo / 100) * 60 + (tzo % 100));
     }
     if (typeof d === 'string') d = new Date(d);
-    if (tzo) d = new Date(d.valueOf() + 1000 * tzo)
+    
+    if (tzo) {
+        d = new Date(d.valueOf() - 1000 * (tzo - d.getTimezoneOffset()) * 60);
+    }
     else tzo = d.getTimezoneOffset()
     
     var month = pad(d.getMonth() + 1, 2);
