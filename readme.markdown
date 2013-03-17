@@ -42,7 +42,7 @@ With [npm](https://npmjs.org) do:
 npm install internet-timestamp
 ```
 
-To use this module in the browser, use [browserify](https://browserify.org).
+To use this module in the browser, use [browserify](http://browserify.org).
 
 # license
 
