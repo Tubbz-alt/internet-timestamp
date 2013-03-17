@@ -1,5 +1,12 @@
 module.exports = function (d) {
+    var tzo = 0, m;
+    if (m = /([-+]\d+)($|\s*\(\S+\)$)/.exec(d)) {
+        tzo = Number(m[1]);
+        tzo = -(Math.floor(tzo / 100) * 60 + (tzo % 100));
+    }
     if (typeof d === 'string') d = new Date(d);
+    if (tzo) d = new Date(d.valueOf() + 1000 * tzo)
+    else tzo = d.getTimezoneOffset()
     
     var month = pad(d.getMonth() + 1, 2);
     var date = pad(d.getDate(), 2);
@@ -10,11 +17,10 @@ module.exports = function (d) {
     var s = pad(d.getSeconds(), 2);
     var hms = [ h, m, s ].join(':');
     
-    var tz = [
-        pad(Math.floor(d.getTimezoneOffset() / 60), 2),
-        pad(d.getTimezoneOffset() % 60, 2)
-    ].join(':');
-    return ymd + 'T' + [h,m,s].join(':') + '-' + tz;
+    var tzs = tzo > 0 ? '-' : '+';
+    var tzh = tzs + pad(Math.floor(Math.abs(tzo) / 60), 2);
+    var tzm = pad(Math.abs(tzo) % 60, 2);
+    return ymd + 'T' + [h,m,s].join(':') + [tzh,tzm].join(':');
 };
 
 function pad (x, n) {

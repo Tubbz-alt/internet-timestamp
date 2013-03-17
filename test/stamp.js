@@ -12,7 +12,7 @@ test('stamps', function (t) {
 test('non-local timezone', function (t) {
     t.plan(1);
     t.equal(
-        timestamp('Thu Mar 14 19:16:19 2013 -0400'),
+        timestamp('Thu Mar 14 19:16:19 2013 +0400'),
         '2013-03-14T19:16:19+04:00'
     );
 });
