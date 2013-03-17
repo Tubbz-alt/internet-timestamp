@@ -12,3 +12,15 @@ test('stamps', function (t) {
         '2013-03-14T19:16:19-07:00'
     );
 });
+
+test('non-local timezone', function (t) {
+    t.plan(2);
+    t.equal(
+        timestamp(new Date('Thu Mar 14 19:16:19 2013 +0400')),
+        '2013-03-14T19:16:19+04:00'
+    );
+    t.equal(
+        timestamp('Thu Mar 14 19:16:19 2013 -0400'),
+        '2013-03-14T19:16:19+04:00'
+    );
+});
