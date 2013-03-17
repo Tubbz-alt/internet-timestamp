@@ -8,6 +8,8 @@ rfc3339 is mandated by
 
 [![browser support](https://ci.testling.com/substack/internet-timestamp.png)](http://ci.testling.com/substack/internet-timestamp)
 
+[![build status](https://secure.travis-ci.org/substack/internet-timestamp.png)](http://travis-ci.org/substack/internet-timestamp)
+
 # example
 
 ``` js
